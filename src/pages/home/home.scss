@@ -1,3 +1,30 @@
 page-home {
+}
 
+.toolbar-background {
+  background: color($colors, dark);
+}
+
+.scroll-content {
+    background: white;
+}
+
+.toolbar-title {
+    color: black;
+}
+
+.tabbar {
+  background: color($colors, dark) !important;
+}
+
+.tab-button-icon {
+    color: color($colors, terciary) !important;
+}
+
+.tab-button-text {
+    color: color($colors, terciary) !important;
+}
+
+.tab-button[aria-selected="true"] .tab-button-icon, .tab-button[aria-selected="true"] .tab-button-text {
+    color: color($colors, light) !important;
 }
