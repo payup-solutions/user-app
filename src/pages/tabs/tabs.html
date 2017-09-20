@@ -1,13 +1,14 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Payup
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-tabs>
-  <ion-tab [root]="codes" tabTitle="Códigos" tabIcon="md-pricetags"></ion-tab>
-  <ion-tab [root]="history" tabTitle="Extrato" tabIcon="md-list"></ion-tab>
-  <ion-tab [root]="cards" tabTitle="Cartões" tabIcon="md-card"></ion-tab>
+<ion-tabs #mainTabs>
+  <ion-tab *ngFor="let page of pages" [root]="page.component" [tabTitle]="page.title" [tabIcon]="page.icon"></ion-tab>
 </ion-tabs>

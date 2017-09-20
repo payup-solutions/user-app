@@ -1,19 +1,27 @@
-import { Component } from '@angular/core';
+import { Menu } from './../../app/menu';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 
-import { HistoryPage } from '../history/history';
-import { CardsPage } from '../cards/cards';
-import { CodesPage } from '../codes/codes';
+import { Tabs, NavParams } from 'ionic-angular';
 
 @Component({
   templateUrl: 'tabs.html'
 })
-export class TabsPage {
+export class TabsPage implements AfterViewInit {
 
-  codes = CodesPage;
-  history = HistoryPage;
-  cards = CardsPage;
+  @ViewChild('mainTabs') mainTabs: Tabs;
+  selectedIndex: number;
 
-  constructor() {
+  pages = Menu.pages;
 
+  constructor(private navParams: NavParams) {
+    const page = navParams.get('page');
+    if (page != null) {
+      this.selectedIndex = this.pages.indexOf(page);
+    }
   }
+
+  ngAfterViewInit() {
+    this.mainTabs.select(this.selectedIndex);
+  }
+
 }
