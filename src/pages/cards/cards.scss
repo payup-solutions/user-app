@@ -1,3 +1,49 @@
 page-cards {
 
 }
+
+.divAddCode {
+    padding: 10% 0 15% 33%;
+}
+
+.divFormCode {
+    padding: 10% 0 10% 5%;
+}
+
+.divSaveBtn {
+    padding: 10% 0 0 0;
+}
+
+ion-tabs {
+    top: 45px;
+    height: calc(100% - 45px);
+  }
+
+.toolbar-background {
+  background: color($colors, dark);
+}
+
+.scroll-content {
+    background: white;
+    overflow: hidden;
+}
+
+.toolbar-title {
+    color: black;
+}
+
+.tabbar {
+  background: color($colors, dark) !important;
+}
+
+.tab-button-icon {
+    color: color($colors, terciary) !important;
+}
+
+.tab-button-text {
+    color: color($colors, terciary) !important;
+}
+
+.tab-button[aria-selected="true"] .tab-button-icon, .tab-button[aria-selected="true"] .tab-button-text {
+    color: color($colors, light) !important;
+}

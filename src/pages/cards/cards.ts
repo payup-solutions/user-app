@@ -10,5 +10,4 @@ export class CardsPage {
   constructor(public navCtrl: NavController) {
 
   }
-
 }
