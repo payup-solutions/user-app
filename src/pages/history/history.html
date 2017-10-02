@@ -1,10 +1,16 @@
 <ion-content>
     <h2 style="padding-left: 5%;">Histórico</h2>
-    <div id="divAddCode" class="divAddCode">
-    </div>
-    <div id="divFormCode" class="divFormCode">
-    </div>
-    <div id="divSaveBtn" class="divSaveBtn">
-        <button ion-button full outline>Salvar</button>
+    <div id="divFormHist" class="divFormHist">
+        <ion-list>
+            <ion-item *ngFor="let history of histList">
+                <ion-thumbnail item-start>
+                    <img [src]="history.src">
+                </ion-thumbnail>
+                <h2>{{history.title}}</h2>
+                <p>{{history.date | date:'dd/MM/yyyy hh:mm'}}</p>
+                <p>{{history.description}}</p>
+                <button ion-button clear item-end>View</button>
+            </ion-item>
+        </ion-list>
     </div>
 </ion-content>
