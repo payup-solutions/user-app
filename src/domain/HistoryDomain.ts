@@ -1,5 +1,5 @@
 export class HistoryDomain{
-    public src: string;
+    src: string;
     title: string;
     description: string;
     date: Date;

@@ -1,11 +1,24 @@
 <ion-content>
   <h2 style="padding-left: 5%;">Códigos</h2>
   <div id="divAddCode" class="divAddCode">
-    <img src="http://media.idownloadblog.com/wp-content/uploads/2014/05/iOS-7-icon-Camera-large-220x218.jpg" style="width: 100px;">
+    <img src="http://media.idownloadblog.com/wp-content/uploads/2014/05/iOS-7-icon-Camera-large-220x218.jpg" style="width: 100px; margin: 0 auto;
+    display: block;">
   </div>
   <div id="divFormCode" class="divFormCode">
+    <table>
+      <tr>
+        <td>
+          <strong>PayUp #1:</strong>
+          <ion-input id="codePlace" type="text" [(ngModel)]="codePlace"></ion-input>
+        </td>
+        <td>
+          <strong>PayUp #2:</strong>
+          <ion-input id="codeNFC" type="text" [(ngModel)]="codeNFC"></ion-input>
+        </td>
+      </tr>
+    </table>
   </div>
   <div id="divSaveBtn" class="divSaveBtn">
-    <button ion-button full outline>Salvar</button>
+    <button type="submit" ion-button full outline (click)="saveCode()">Salvar</button>
   </div>
 </ion-content>

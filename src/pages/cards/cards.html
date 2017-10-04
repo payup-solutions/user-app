@@ -1,4 +1,3 @@
-<link href="" rel="stylesheet">
 <ion-content>
   <h2 style="padding-left: 5%;">Cartões</h2>
   <div id="divAddCards" class="divAddCards">
@@ -9,27 +8,27 @@
     <table>
       <tr>
         <td>
-          Numero:
-          <ion-input type="text"></ion-input>
+          <strong>Numero:</strong>
+          <ion-input id="number" type="text" [(ngModel)]="number"></ion-input>
         </td>
         <td>
-          Validade:
-          <ion-input type="text"></ion-input>
+          <strong>Validade:</strong>
+          <ion-input id="validate" type="text" [(ngModel)]="validate"></ion-input>
         </td>
       </tr>
       <tr>
         <td>
-          Nome:
-          <ion-input type="text"></ion-input>
+          <strong>Nome:</strong>
+          <ion-input id="name" type="text" [(ngModel)]="name"></ion-input>
         </td>
         <td>
-          CVV:
-          <ion-input type="text"></ion-input>
+          <strong>CVV:</strong>
+          <ion-input id="cvv" type="text" [(ngModel)]="cvv"></ion-input>
         </td>
       </tr>
     </table>
   </div>
   <div id="divSaveBtn" class="divSaveBtn">
-    <button ion-button full outline>Salvar</button>
+    <button type="submit" ion-button full outline (click)="saveCard()">Salvar</button>
   </div>
 </ion-content>

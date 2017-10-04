@@ -1,4 +1,4 @@
-import { HistoryDomain } from './../../domain/history';
+import { HistoryDomain } from './../../domain/HistoryDomain';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import * as _ from "lodash";
