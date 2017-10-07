@@ -7,11 +7,12 @@ import { NavController } from 'ionic-angular';
   selector: 'page-cards',
   templateUrl: 'cards.html'
 })
-
 export class CardsPage implements OnInit {
   card = new CardDomain();
+  textMask: any;
 
-  constructor(public navCtrl: NavController) { }
+
+  constructor() { }
 
   ngOnInit() { }
 

@@ -2,8 +2,6 @@ import { CardsPage } from './../pages/cards/cards';
 import { HistoryPage } from './../pages/history/history';
 import { CodesPage } from './../pages/codes/codes';
 
-import { Injectable } from '@angular/core';
-
 export class Page {
   title: string;
   component: any;

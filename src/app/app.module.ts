@@ -14,8 +14,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HttpModule } from '@angular/http';
 
-import { TextMaskModule } from 'angular2-text-mask';
-
 @NgModule({
   declarations: [
     MyApp,
@@ -28,8 +26,7 @@ import { TextMaskModule } from 'angular2-text-mask';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule,
-    TextMaskModule
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
