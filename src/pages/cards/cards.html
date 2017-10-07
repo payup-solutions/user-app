@@ -5,28 +5,28 @@
           display: block;">
   </div>
   <div id="divFormCards" class="divFormCards">
-    <table>
-      <tr>
-        <td>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
           <strong>Numero:</strong>
-          <ion-input id="number" type="text" [(ngModel)]="number"></ion-input>
-        </td>
-        <td>
+          <ion-input pattern="\d*" mask="**** **** **** ****" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" name="number" [(ngModel)]="card.number"></ion-input>
+        </ion-col>
+        <ion-col>
           <strong>Validade:</strong>
-          <ion-input id="validate" type="text" [(ngModel)]="validate"></ion-input>
-        </td>
-      </tr>
-      <tr>
-        <td>
+          <ion-input id="validate" type="text" [(ngModel)]="card.validate"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
           <strong>Nome:</strong>
-          <ion-input id="name" type="text" [(ngModel)]="name"></ion-input>
-        </td>
-        <td>
+          <ion-input id="name" type="text" [(ngModel)]="card.name"></ion-input>
+        </ion-col>
+        <ion-col>
           <strong>CVV:</strong>
-          <ion-input id="cvv" type="text" [(ngModel)]="cvv"></ion-input>
-        </td>
-      </tr>
-    </table>
+          <ion-input id="cvv" type="text" [(ngModel)]="card.cvv"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
   <div id="divSaveBtn" class="divSaveBtn">
     <button type="submit" ion-button full outline (click)="saveCard()">Salvar</button>

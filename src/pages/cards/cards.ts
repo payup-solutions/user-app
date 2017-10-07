@@ -1,7 +1,7 @@
+import { InputMask } from './../../directive/InputMask';
 import { CardDomain } from './../../domain/CardDomain';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import * as _ from "lodash";
 
 @Component({
   selector: 'page-cards',
@@ -9,21 +9,13 @@ import * as _ from "lodash";
 })
 
 export class CardsPage implements OnInit {
-  number: string = "";
-  validate: string = "";
-  name: string = "";
-  cvv: string = "";
+  card = new CardDomain();
 
   constructor(public navCtrl: NavController) { }
 
   ngOnInit() { }
 
   saveCard() {
-    let card = new CardDomain();
-    card.number = this.number;
-    card.validate = this.validate;
-    card.name = this.name;
-    card.cvv = this.cvv;
-    console.log(card);
+    console.log(this.card);
   }
 }
