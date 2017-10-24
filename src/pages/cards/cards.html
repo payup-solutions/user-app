@@ -11,19 +11,19 @@
           <strong>Numero:</strong>
            <ion-input pattern="\d*" mask="**** **** **** ****" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" name="number" [(ngModel)]="card.number"></ion-input> 
         </ion-col>
-        <ion-col>
+        <ion-col col-5>
           <strong>Validade:</strong>
-          <ion-input id="validate" type="text" [(ngModel)]="card.validate"></ion-input>
+          <ion-input pattern="\d*" mask="**/**" maxlength="5" placeholder="MM/YY" name="validate" [(ngModel)]="card.validate"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <strong>Nome:</strong>
-          <ion-input id="name" type="text" [(ngModel)]="card.name"></ion-input>
+          <ion-input maxlength="22" name="name" [(ngModel)]="card.name"></ion-input>
         </ion-col>
-        <ion-col>
+        <ion-col col-5>
           <strong>CVV:</strong>
-          <ion-input id="cvv" type="text" [(ngModel)]="card.cvv"></ion-input>
+          <ion-input pattern="\d*" mask="***" maxlength="3" placeholder="***" name="cvv" [(ngModel)]="card.cvv"></ion-input>
         </ion-col>
       </ion-row>
     </ion-grid>

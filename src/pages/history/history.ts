@@ -2,6 +2,7 @@ import { HistoryDomain } from './../../domain/HistoryDomain';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import * as _ from "lodash";
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-history',
@@ -9,7 +10,7 @@ import * as _ from "lodash";
 })
 export class HistoryPage implements OnInit {
   histList: HistoryDomain[] = [];
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
   }
   ngOnInit() {
     let hist1 = new HistoryDomain();
@@ -30,5 +31,13 @@ export class HistoryPage implements OnInit {
     hist1 = _.cloneDeep(hist1);
     hist1.date = new Date(2015, 9, 13);
     this.histList.push(hist1);
+  }
+  showAlert(amount: string, description: string, date: string) {
+    let alert = this.alertCtrl.create({
+      title: 'Payment Details',
+      subTitle: description + " - " + amount,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }
