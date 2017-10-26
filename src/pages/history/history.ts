@@ -33,7 +33,7 @@ export class HistoryPage implements OnInit {
     this.histList.push(hist1);
   }
   showAlert(amount: string, description: string, date: string) {
-    let alert = this.alertCtrl.create({
+    const alert = this.alertCtrl.create({
       title: 'Payment Details',
       subTitle: description + " - " + amount,
       buttons: ['OK']
