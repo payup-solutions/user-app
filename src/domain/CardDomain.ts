@@ -1,6 +1,7 @@
-export class CardDomain{
+export class CardDomain {
+    flagUrl: string;
     number: string;
-    validate: string;
+    validate: Date;
     name: string;
     cvv: string;
 }
