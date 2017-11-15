@@ -29,7 +29,7 @@ export class CardsService extends Resource {
 
     @ResourceAction({
         method: RequestMethod.Delete,
-        parh: '{!id}'
+        path: '/{!id}'
     })
     delete: ResourceMethod<{id: number}, Boolean>;
 
