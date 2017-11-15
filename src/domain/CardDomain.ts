@@ -1,7 +1,7 @@
 export class CardDomain {
     flagUrl: string;
     number: string;
-    validate: Date;
+    expirationDate: string;
     name: string;
     cvv: string;
 }

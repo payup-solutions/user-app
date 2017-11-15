@@ -1,11 +1,11 @@
-import { InputMask } from './../../directive/InputMask';
+import { CardsService } from './card-service';
 import { CardDomain } from './../../domain/CardDomain';
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-cards',
-  templateUrl: 'cards.html'
+  templateUrl: 'cards.html',
+  providers: [CardsService]
 })
 export class CardsPage implements OnInit {
   cardList: CardDomain[] = [];
@@ -14,14 +14,14 @@ export class CardsPage implements OnInit {
   showAdd: boolean = true;
   showList: boolean = false;
 
-  constructor() { }
+  constructor(private cardsService: CardsService) { }
 
   ngOnInit() {
     let card1 = new CardDomain();
     card1.flagUrl = "http://woltag.com/wp-content/photos/2014/09/Mastercard-logo.jpg";
     card1.name = "Jota Card";
     card1.number = "1234 1234 1234 1234";
-    card1.validate = new Date(2019, 9, 11);
+    card1.expirationDate = '9/19';
     this.cardList.push(card1);
   }
 
@@ -30,17 +30,33 @@ export class CardsPage implements OnInit {
     this.showList = true;
   }
 
-  saveCard() {
-    // if (this.card != null) {
-    //   if (this.card.name.length > 0 && this.card.number.length == 19 && this.card.cvv.length == 3) {
-    //     this.card.flagUrl = "http://woltag.com/wp-content/photos/2014/09/Mastercard-logo.jpg";
-    //     this.cardList.push(this.card);
-    //   }
+  saveCard(form) {
+    if (this.isNotValidCard(form)) {
+      return;
+    }
+
+    this.cardsService.save(this.card).$observable.subscribe(
+      card => {
+        this.cardList.push(card);
+        this.card = new CardDomain();
+      },
+      error => {
+        // TODO show error message
+      },
+      () => {
+        this.showAdd = true;
+        this.showList = false;
+      });
+  }
+
+  isNotValidCard(form) {
+    // TODO AJUST VALIDATION
+    // if (!form.valid) {
+    //   //TODO SHOW MESSAGE
+    //   return true;
     // }
 
-    this.showAdd = true;
-    this.showList = false;
-    console.log(this.card);
+    return false;
   }
 
   removeItem(item) {
