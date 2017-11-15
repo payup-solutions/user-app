@@ -7,7 +7,8 @@
           <ion-thumbnail item-start>
             <img src="http://woltag.com/wp-content/photos/2014/09/Mastercard-logo.jpg" style="padding: 5px;">
           </ion-thumbnail>
-          <h2 class="card-label">{{card.number}}</h2>
+          <h2 class="card-label inline-block font-size-1-5-rem">{{card.number}}</h2>
+          <ion-icon name="star" *ngIf="card.active" class="inline-block"></ion-icon>
           <p>{{card.name}}</p>
           <p>{{card.expirationDate}}</p>
           <button ion-button clear item-end (click)="showOptions(card)" class="cards-buttons">
@@ -52,35 +53,35 @@
     </div>
     <div id="divSaveBtn" class="divSaveBtn">
       <ion-grid>
-          <ion-row>
-            <ion-col>
-              <button ion-button icon-left (click)="backToList()" color="light" full>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left (click)="backToList()" color="light" full>
                 <ion-icon name="arrow-back"></ion-icon>
                 Voltar
               </button>
-            </ion-col>
-            <ion-col>
-              <button ion-button icon-left (click)="activateCard()" [disabled]="card.active" color="dark" full>
-                <ion-icon name="checkmark"></ion-icon>
-                Ativar
-              </button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <button ion-button icon-left (click)="saveCard(cardForm)" color="terciary" full>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left (click)="saveCard(cardForm)" color="terciary" full>
                 <ion-icon name="cloud-upload"></ion-icon>
                 Salvar
               </button>
-            </ion-col>
-            <ion-col>
-              <button ion-button icon-left (click)="removeCard()" [disabled]="card.active" color="danger" full>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left (click)="activateCard()" [disabled]="card.active" color="dark" full *ngIf="card.id != null">
+                <ion-icon name="checkmark"></ion-icon>
+                Ativar
+              </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left (click)="removeCard()" [disabled]="card.active" color="danger" full *ngIf="card.id != null">
                 <ion-icon name="trash"></ion-icon>
                 Excluir
               </button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
   </div>
 </ion-content>

@@ -4,5 +4,6 @@ export class CardDomain {
     expirationDate: string;
     name: string;
     cvv: string;
-    active: boolean;
+    active: boolean = false;
+    consumerId: number;
 }

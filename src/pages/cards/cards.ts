@@ -63,8 +63,9 @@ export class CardsPage implements OnInit {
     // TODO START LOADING SCREEN
     this.cardsService.save(this.card).$observable.subscribe(
       card => {
-        this.cardList.push(card);
-        this.card = new CardDomain();
+        if (this.card.id == null) {
+          this.cardList.push(card);
+        }
       },
       error => {
         // TODO show error message
@@ -79,9 +80,9 @@ export class CardsPage implements OnInit {
     // TODO START LOADING SCREEN
     this.cardsService.activateCard(this.card).$observable.subscribe(
       card => {
-        // TODO DEACTIVATE THE CARD THAT WAS ACTIVE BEFORE
-        // this.cardList.find(activeCard => activeCard.active == true).active = false;
-        this.card = card;
+        this.cardList.forEach(oldActiveCard => oldActiveCard.active = false);
+        this.card.active = true;
+        // TODO SUCCESS MESSAGE
       },
       error => {
         // TODO show error message
