@@ -27,3 +27,4 @@ platforms/
 plugins/
 $ANDROID_SDK/
 .idea/
+.sourcemaps/

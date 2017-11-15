@@ -2,10 +2,6 @@ page-cards {
 
 }
 
-.divCardsList {
-    padding: 10% 0 10% 0;
-}
-
 .divAddCards {
     padding: 10% 0 15% 0;
 }
@@ -50,4 +46,14 @@ ion-tabs {
 
 .tab-button[aria-selected="true"] .tab-button-icon, .tab-button[aria-selected="true"] .tab-button-text {
     color: color($colors, light) !important;
+}
+
+.card-label {
+    font-weight: bold !important;
+}
+
+.cards-buttons {
+    padding: 0 !important;
+    font-size: 2em !important;
+    height: 100% !important;
 }

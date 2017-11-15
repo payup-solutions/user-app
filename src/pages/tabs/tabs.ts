@@ -13,7 +13,7 @@ export class TabsPage implements AfterViewInit {
 
   pages = Menu.pages;
 
-  constructor(private navParams: NavParams) {
+  constructor(navParams: NavParams) {
     const page = navParams.get('page');
     if (page != null) {
       this.selectedIndex = this.pages.indexOf(page);

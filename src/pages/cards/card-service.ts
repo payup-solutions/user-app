@@ -1,9 +1,8 @@
 import { AppSettings } from './../../app/app.settings';
-import { HttpModule } from '@angular/http';
 import { CardDomain } from './../../domain/CardDomain';
-import { Http, Headers, RequestMethod } from '@angular/http';
+import { Http, RequestMethod } from '@angular/http';
 import { Injectable, Injector } from '@angular/core';
-import { Resource, ResourceMethod, ResourceParams, ResourceAction, ResourceResult } from 'ng2-resource-rest';
+import { Resource, ResourceMethod, ResourceParams, ResourceAction } from 'ng2-resource-rest';
 
 
 
@@ -22,6 +21,24 @@ export class CardsService extends Resource {
     })
     save: ResourceMethod<CardDomain, CardDomain>;
 
+    @ResourceAction({
+        method: RequestMethod.Get,
+        isArray: true
+    })
+    getConsumerCards: ResourceMethod<CardDomain, CardDomain[]>;
+
+    @ResourceAction({
+        method: RequestMethod.Delete,
+        parh: '{!id}'
+    })
+    delete: ResourceMethod<{id: number}, Boolean>;
+
+    @ResourceAction({
+        method: RequestMethod.Get,
+        path: '/activate/{!id}'
+    })
+    activateCard: ResourceMethod<{id: number}, CardDomain>;
+    
     constructor(http: Http, injector: Injector) {
         super(http, injector);
     }

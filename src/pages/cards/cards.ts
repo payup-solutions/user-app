@@ -9,25 +9,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsPage implements OnInit {
   cardList: CardDomain[] = [];
-  card = new CardDomain();
-  textMask: any;
-  showAdd: boolean = true;
-  showList: boolean = false;
+  card: CardDomain;
 
   constructor(private cardsService: CardsService) { }
 
   ngOnInit() {
-    let card1 = new CardDomain();
-    card1.flagUrl = "http://woltag.com/wp-content/photos/2014/09/Mastercard-logo.jpg";
-    card1.name = "Jota Card";
-    card1.number = "1234 1234 1234 1234";
-    card1.expirationDate = '9/19';
-    this.cardList.push(card1);
+    this.getConsumerCards();
   }
 
-  newCard() {
-    this.showAdd = false;
-    this.showList = true;
+  // INITIAL REQUESTS
+
+  getConsumerCards() {
+    // TODO START LOADING SCREEN
+    this.cardsService.getConsumerCards().$observable.subscribe(
+      cards => {
+        this.cardList = cards;
+      },
+      error => {
+        // TODO show error message
+      },
+      () => {
+        // TODO FINISH LOADING SCREEN
+      }
+    );
+  }
+
+  // BUTTON ACTIONS
+  backToList() {
+    this.card = null;
+  }
+
+  removeCard() {
+    // TODO START LOADING SCREEN
+    this.cardsService.delete(this.card).$observable.subscribe(
+      () => {
+        // TODO show success message
+        this.cardList.splice(this.cardList.indexOf(this.card), 1);
+        this.card = null;
+      },
+      error => {
+        // TODO show error message
+      },
+      () => {
+        // TODO FINISH LOADING SCREEN
+      });
   }
 
   saveCard(form) {
@@ -35,6 +60,7 @@ export class CardsPage implements OnInit {
       return;
     }
 
+    // TODO START LOADING SCREEN
     this.cardsService.save(this.card).$observable.subscribe(
       card => {
         this.cardList.push(card);
@@ -44,8 +70,24 @@ export class CardsPage implements OnInit {
         // TODO show error message
       },
       () => {
-        this.showAdd = true;
-        this.showList = false;
+        this.card = null;
+        //TODO FINISH LOADING SCREEN
+      });
+  }
+
+  activateCard() {
+    // TODO START LOADING SCREEN
+    this.cardsService.activateCard(this.card).$observable.subscribe(
+      card => {
+        // TODO DEACTIVATE THE CARD THAT WAS ACTIVE BEFORE
+        // this.cardList.find(activeCard => activeCard.active == true).active = false;
+        this.card = card;
+      },
+      error => {
+        // TODO show error message
+      },
+      () => {
+        // TODO FINISH LOADING SCREEN
       });
   }
 
@@ -58,12 +100,12 @@ export class CardsPage implements OnInit {
 
     return false;
   }
+  
+  newCard() {
+    this.card = new CardDomain();
+  }
 
-  removeItem(item) {
-    // for (i = 0; i < this.cardList.length; i++) {
-    //   if (this.cardList[i] == item) {
-    //     this.cardList.splice(i, 1);
-    //   }
-    // }
+  showOptions(card: CardDomain) {
+    this.card = card;
   }
 }
