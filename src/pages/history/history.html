@@ -4,7 +4,7 @@
         <ion-list>
             <ion-item *ngFor="let transaction of transactions">
                 <ion-icon [name]="getIconName(transaction.transactionType)"></ion-icon> 
-                <h2>{{transaction.value}}</h2>
+                <h2>{{transaction.value | currency:'BRL':true:'1.2-2'}}</h2>
                 <p>{{transaction.timestamp | date:'dd/MM/yyyy hh:mm'}}</p>
                 <p>{{transaction.transactionType.description}}</p>
             </ion-item>
