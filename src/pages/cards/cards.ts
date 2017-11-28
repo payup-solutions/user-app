@@ -1,4 +1,4 @@
-import { CardsService } from './card-service';
+import { CardsService } from './card.service';
 import { CardDomain } from './../../domain/CardDomain';
 import { Component, OnInit } from '@angular/core';
 

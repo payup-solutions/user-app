@@ -17,8 +17,15 @@
         </ion-item>
       </ion-list>
     </div>
-    <div id="divAddBtn" class="divAddBtn">
-      <button type="submit" ion-button full outline (click)="newCard()">Novo Cartão</button>
+    <div id="divSaveBtn" class="divSaveBtn">
+      <ion-grid>
+        <ion-row>
+          <button ion-button icon-left (click)="newCard()" color="terciary" full>
+            <ion-icon name="ion-plus-circled"></ion-icon>
+              Adicionar cartão
+            </button>
+        </ion-row>
+      </ion-grid>
     </div>
   </div>
   <div id="pnlCardsList" *ngIf="card != null">

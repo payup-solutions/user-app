@@ -2,14 +2,11 @@
     <h2 style="padding-left: 5%;">Histórico</h2>
     <div id="divHistList" class="divHistList">
         <ion-list>
-            <ion-item *ngFor="let history of histList">
-                <ion-thumbnail item-start>
-                    <img [src]="history.src" style="padding: 5px;">
-                </ion-thumbnail>
-                <h2>{{history.title}}</h2>
-                <p>{{history.date | date:'dd/MM/yyyy hh:mm'}}</p>
-                <p>{{history.description}}</p>
-                <button ion-button clear item-end (click)="showAlert(history.title, history.description, history.date)">View</button>
+            <ion-item *ngFor="let transaction of transactions">
+                <ion-icon [name]="getIconName(transaction.transactionType)"></ion-icon> 
+                <h2>{{transaction.value}}</h2>
+                <p>{{transaction.timestamp | date:'dd/MM/yyyy hh:mm'}}</p>
+                <p>{{transaction.transactionType.description}}</p>
             </ion-item>
         </ion-list>
     </div>
