@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CodesPage implements OnInit {
   code: string;
-  codeDomain: CodeDomain;
+  currentCode: CodeDomain;
 
   constructor(private codeService: CodeService) { }
 
@@ -17,11 +17,14 @@ export class CodesPage implements OnInit {
     this.getCurrentCode();
   }
 
-  activate() {
+  activate(form) {
+    if (this.isNotValidCode(form)) {
+      return;
+    }
     // TODO START LOADING SCREEN
     this.codeService.activate({code: this.code}).$observable.subscribe(
       code => {
-        this.codeDomain = code;
+        this.currentCode = code;
       },
       error => {
         // TODO show error message
@@ -35,7 +38,9 @@ export class CodesPage implements OnInit {
     // TODO START LOADING SCREEN
     this.codeService.getCurrentCode().$observable.subscribe(
       code => {
-        this.codeDomain = code;
+        if (code.id != null) {
+          this.currentCode = code;
+        }
       },
       error => {
         // TODO show error message
@@ -47,9 +52,9 @@ export class CodesPage implements OnInit {
 
   deactivate() {
     // TODO START LOADING SCREEN
-    this.codeService.deactivate({id: this.codeDomain.id}).$observable.subscribe(
+    this.codeService.deactivate({id: this.currentCode.id}).$observable.subscribe(
       response => {
-        this.codeDomain = null;
+        this.currentCode = null;
         // TODO SHOW SUCCESS
       },
       error => {
@@ -58,5 +63,14 @@ export class CodesPage implements OnInit {
       () => {
         //TODO FINISH LOADING SCREEN
       });
+  }
+
+  isNotValidCode(form) {
+    if (!form.valid) {
+      //TODO SHOW INVALID MESSAGE
+      return true;
+    }
+
+    return false;
   }
 }

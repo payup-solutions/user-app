@@ -1,28 +1,39 @@
-// http://ionicframework.com/docs/theming/
-
-
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
-
-
 ion-tabs {
     top: 56px;
     height: calc(100% - 56px)
 }
 
+ion-label {
+    font-size: larger !important;
+}
+
+.toolbar-background {
+  background: color($colors, dark);
+}
+
+.scroll-content {
+    background: white;
+    overflow: hidden;
+}
+
+.tabbar {
+  background: color($colors, dark) !important;
+}
+
+.tab-button-icon {
+    color: color($colors, terciary) !important;
+}
+
+.tab-button-text {
+    color: color($colors, terciary) !important;
+}
+
+.tab-button[aria-selected="true"] .tab-button-icon, .tab-button[aria-selected="true"] .tab-button-text {
+    color: color($colors, light) !important;
+}
+
 .toolbar-title {
-    color: whitesmoke !important;
+    color: whitesmoke;
 }
 
 .inline-block {
@@ -31,4 +42,36 @@ ion-tabs {
 
 .font-size-1-5-rem {
     font-size: 1.5rem !important;
+}
+
+.margin-10-pr {
+  margin: 10%;
+}
+
+.margin-left-5-pr {
+    margin-left: 5%;
+}
+
+.margin-5-pr {
+    margin: 5%;
+}
+
+.text-input {
+    text-align: center;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.padding-5 {
+    padding: 5px;
+}
+
+.bold {
+    font-weight: bold !important;
 }

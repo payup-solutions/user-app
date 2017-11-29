@@ -1,13 +1,13 @@
 <ion-content>
-  <h2 style="padding-left: 5%;">Cartões</h2>
-  <div id="pnlActiveCard" *ngIf="card == null">
-    <div id="divCardsList" class="divCardsList">
+  <h2 class="margin-left-5-pr">Cartões</h2>
+  <div *ngIf="card == null">
+    <div>
       <ion-list>
         <ion-item *ngFor="let card of cardList">
           <ion-thumbnail item-start>
-            <img src="http://woltag.com/wp-content/photos/2014/09/Mastercard-logo.jpg" style="padding: 5px;">
+            <img src="http://woltag.com/wp-content/photos/2014/09/Mastercard-logo.jpg" class="padding-5">
           </ion-thumbnail>
-          <h2 class="card-label inline-block font-size-1-5-rem">{{card.number}}</h2>
+          <h2 class="bold inline-block font-size-1-5-rem">{{card.number}}</h2>
           <ion-icon name="star" *ngIf="card.active" class="inline-block"></ion-icon>
           <p>{{card.name}}</p>
           <p>{{card.expirationDate}}</p>
@@ -17,7 +17,7 @@
         </ion-item>
       </ion-list>
     </div>
-    <div id="divSaveBtn" class="divSaveBtn">
+    <div>
       <ion-grid>
         <ion-row>
           <button ion-button icon-left (click)="newCard()" color="terciary" full>
@@ -28,29 +28,29 @@
       </ion-grid>
     </div>
   </div>
-  <div id="pnlCardsList" *ngIf="card != null">
+  <div *ngIf="card != null">
     <div id="divFormCards" class="divFormCards">
       <form #cardForm="ngForm">
         <ion-grid>
           <ion-row>
             <ion-col>
-              <strong>Numero:</strong>
+              <ion-label color="primary" stacked>Número:</ion-label>
               <ion-input pattern="[\d]{4} [\d]{4} [\d]{4} [\d]{4}" mask="**** **** **** ****" maxlength="19" minlength="19" placeholder="XXXX XXXX XXXX XXXX"
                 name="number" ngControl="number" [(ngModel)]="card.number" required></ion-input>
             </ion-col>
             <ion-col col-5>
-              <strong>Validade:</strong>
+              <ion-label color="primary" stacked>Validade:</ion-label>
               <ion-input pattern="\d*" mask="**/**" maxlength="5" minlength="5" placeholder="MM/YY" name="expirationDate" ngControl="expirationDate"
                 [(ngModel)]="card.expirationDate" required></ion-input>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-              <strong>Nome:</strong>
+              <ion-label color="primary" stacked>Nome:</ion-label>
               <ion-input maxlength="22" name="name" ngControl="name" [(ngModel)]="card.name" required></ion-input>
             </ion-col>
             <ion-col col-5>
-              <strong>CVV:</strong>
+              <ion-label color="primary" stacked>CVV:</ion-label>
               <ion-input pattern="\d*" mask="***" maxlength="3" minlength="3" placeholder="***" name="cvv" ngControl="cvv" [(ngModel)]="card.cvv"
                 required></ion-input>
             </ion-col>
@@ -58,7 +58,7 @@
         </ion-grid>
       </form>
     </div>
-    <div id="divSaveBtn" class="divSaveBtn">
+    <div>
       <ion-grid>
         <ion-row>
           <ion-col>

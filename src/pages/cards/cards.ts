@@ -95,7 +95,7 @@ export class CardsPage implements OnInit {
   isNotValidCard(form) {
     // TODO AJUST VALIDATION
     // if (!form.valid) {
-    //   //TODO SHOW MESSAGE
+    //   //TODO SHOW INVALID MESSAGE
     //   return true;
     // }
 

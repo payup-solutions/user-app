@@ -8,7 +8,7 @@ import { Resource, ResourceMethod, ResourceParams, ResourceAction } from 'ng2-re
 
 @Injectable()
 @ResourceParams({
-    url: AppSettings.API_ENDPOINT + '/cards',
+    url: AppSettings.API_ENDPOINT + '/codes',
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

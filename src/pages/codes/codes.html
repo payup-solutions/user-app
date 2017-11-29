@@ -1,24 +1,40 @@
 <ion-content>
-   <!-- <h2 style="padding-left: 5%;">Códigos</h2>
-  <div id="divAddCode" class="divAddCode">
-    <img src="http://media.idownloadblog.com/wp-content/uploads/2014/05/iOS-7-icon-Camera-large-220x218.jpg" style="width: 100px; margin: 0 auto;
-    display: block;">
+  <h2 class="margin-left-5-pr">Códigos</h2>
+  <div class="margin-10-pr" *ngIf="currentCode == null">
+    <form #codeForm="ngForm">
+      <ion-label color="primary" stacked>Código:</ion-label>
+      <ion-input mask="**********" maxlength="10" minlength="10" placeholder="XXXXXXXXXX"
+        name="code" ngControl="code" [(ngModel)]="code" required></ion-input>
+      <button ion-button icon-left (click)="activate(codeForm)" color="terciary" full>
+        <ion-icon name="play"></ion-icon>
+        Ativar
+      </button>
+    </form>
   </div>
-  <div id="divFormCode" class="divFormCode">
-    <table>
-      <tr>
-        <td>
-          <strong>PayUp #1:</strong>
-          <ion-input id="codePlace" type="text" [(ngModel)]="code.codePlace"></ion-input>
-        </td>
-        <td>
-          <strong>PayUp #2:</strong>
-          <ion-input id="codeNFC" type="text" [(ngModel)]="code.codeNFC"></ion-input>
-        </td>
-      </tr>
-    </table>
+  <div class="margin-10-pr" *ngIf="currentCode != null">
+    <ion-grid>
+      <ion-row>
+        <span class="text-align-center w-100 margin-5-pr">
+          {{currentCode.value}}
+        </span>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <strong>Ativado em:</strong>
+          <br>
+          {{currentCode.activationDate | date:'dd/MM/yy HH:mm:ss'}}
+        </ion-col>
+        <ion-col>
+          <strong>Expira em:</strong>
+          <br>
+          {{currentCode.expirationDate | date:'dd/MM/yy HH:mm:ss'}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <button ion-button icon-left (click)="deactivate()" color="danger" full>
+      <ion-icon name="square"></ion-icon>
+      Desativar
+    </button>
   </div>
-  <div id="divSaveBtn" class="divSaveBtn">
-    <button type="submit" ion-button full outline (click)="saveCode()">Salvar</button>
-  </div>  -->
 </ion-content>
