@@ -1,4 +1,7 @@
 export class CodeDomain{
-    codePlace: string;
-    codeNFC: string;
+    id: number;
+    activationDate: Date;
+    expirationDate: Date;
+    active: boolean;
+    value: string;
 }
