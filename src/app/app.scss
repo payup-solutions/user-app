@@ -7,12 +7,16 @@ ion-label {
     font-size: larger !important;
 }
 
+ion-item {
+    background-color: color($colors, background-color) !important;
+}
+
 .toolbar-background {
   background: color($colors, dark);
 }
 
 .scroll-content {
-    background: white;
+    background: #eeeeee;
     overflow: hidden;
 }
 
@@ -33,7 +37,7 @@ ion-label {
 }
 
 .toolbar-title {
-    color: whitesmoke;
+    color: color($colors, background-color) !important;
 }
 
 .inline-block {
